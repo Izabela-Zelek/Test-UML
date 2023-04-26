@@ -3,7 +3,7 @@ name: Generate UML
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   generate-uml:
@@ -11,13 +11,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Generate UML
-        uses: jakejarvis/plantuml-github-action@master
+        uses: cloudbees/plantuml-github-action@v1.2.0
         with:
-          args: -charset UTF-8 -tpng -tsvg ./**/*.cs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          source-dir: ./
+          output-dir: ./uml
+          format: svg
+          recursive: true
       
       - name: Commit UML files
         run: |
