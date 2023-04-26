@@ -54,8 +54,7 @@ jobs:
 
       - uses: EndBug/add-and-commit@v7.0.0
         with:
-          author_name: 'UML Bot'
-          message: 'Generate UML (${{ github.workflow }})'
-          author_email: 41898282+uml-bot[bot]@users.noreply.github.com
-        env:
-           GITHUB_TOKEN: ${{ secrets.FOR_UML }}
+          commit_message: 'Generate UML'
+          signoff: false
+          branch: master
+          github_token: ${{ secrets.FOR_UML }}
