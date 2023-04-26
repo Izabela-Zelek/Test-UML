@@ -57,3 +57,5 @@ jobs:
           author_name: 'UML Bot'
           message: 'Generate UML (${{ github.workflow }})'
           author_email: 41898282+uml-bot[bot]@users.noreply.github.com
+        env:
+           GITHUB_TOKEN: ${{ secrets.FOR_UML }}
